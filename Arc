@@ -25,6 +25,10 @@ teacher = nil
 ❌ In this case:
 student holds a strong reference to teacher
 
+
+===== Day 2 on arc ===
+
+
 teacher holds a strong reference back to student
 
 Even after setting both to nil, ARC doesn’t deallocate either, because they’re still strongly referring to each other
@@ -75,3 +79,80 @@ Then when you do student = nil, both student and teacher no longer have any stro
 | One-way strong reference | ✅ Yes                  |
 | Two-way strong reference | ❌ No (retain cycle)    |
 | One side weak / unowned  | ✅ Yes                  |
+
+
+
+===== DAY 2 ON ARC ===
+
+| Declaration                | Optional? | Strong/Weak? | Meaning                                   |
+| -------------------------- | --------- | ------------ | ----------------------------------------- |
+| `var tenant: Person?`      | ✅         | strong       | Optional strong reference (default)       |
+| `weak var tenant: Person?` | ✅         | weak         | Optional weak reference (no retain cycle) |
+| `unowned var x: Person`    | ❌         | unowned      | Non-optional weak-like reference          |
+
+
+====== Weak vs Unowned ====
+
+| Use this... | When the reference can become `nil` | When the reference **should never** be `nil`    |
+| ----------- | ----------------------------------- | ----------------------------------------------- |
+| `weak`      | ✅ Yes (use optional `?`)            | ❌ No                                            |
+| `unowned`   | ❌ No (non-optional)                 | ✅ Yes, it must always exist during its lifetime |
+
+
+## ✅ weak – Use When the Reference Can Become Nil
+## Scenario: A Person may or may not have an Apartment, and vice versa.
+class Person {
+    let name: String
+    var apartment: Apartment?
+
+    init(name: String) {
+        self.name = name
+    }
+
+    deinit {
+        print("Person \(name) deinitialized")
+    }
+}
+
+class Apartment {
+    let number: Int
+    weak var tenant: Person?  // ✅ Use weak here
+
+    init(number: Int) {
+        self.number = number
+    }
+
+    deinit {
+        print("Apartment \(number) deinitialized")
+    }
+}
+
+✅ unowned – Use When the Reference Must Always Exist
+Scenario: A CreditCard always belongs to a Customer. Once the customer is deallocated, the card should be too.
+
+class Customer {
+    let name: String
+    var card: CreditCard?
+
+    init(name: String) {
+        self.name = name
+    }
+
+    deinit {
+        print("Customer \(name) deinitialized")
+    }
+}
+
+class CreditCard {
+    let number: Int
+    unowned let customer: Customer  // ✅ Use unowned here
+
+    init(number: Int, customer: Customer) {
+        self.number = number
+        self.customer = customer
+    }
+
+    deinit {
+        print("CreditCard \(number) deinitialized")
+    }
+}
