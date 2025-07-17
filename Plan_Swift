@@ -1,0 +1,36 @@
+✅ Swift Interview Prep – 30-Day Daily Schedule (20–30 min/day)
+Day	Topic	Focus Areas
+Day 1	Introduction to Swift	Constants, Variables, Data Types, Optionals
+Day 2	Control Flow	if, guard, switch, for, while
+Day 3	Functions	Parameters, Return Types, Variadic, Default, Inout
+Day 4	Closures	Syntax, Capturing Values, Escaping, Trailing
+Day 5	Enums	Raw vs Associated Values, Methods, Switch Matching
+Day 6	Structs vs Classes	Value vs Reference, Mutability, Inheritance
+Day 7	Properties	Stored, Computed, Lazy, Property Observers
+Day 8	Methods	Instance, Type, Mutating methods in Structs
+Day 9	Protocols	Declaration, Adoption, Protocol-Oriented Programming
+Day 10	Extensions	Adding functionality, Constraints, Default Implementations
+
+| Day 11 | Initializers | Designated, Convenience, Failable, Required |
+| Day 12 | Deinitialization | Memory cleanup, deinit use cases |
+| Day 13 | ARC (Automatic Reference Counting) | Strong, Weak, Unowned, Retain Cycles |
+| Day 14 | Error Handling | try, catch, throws, rethrows |
+| Day 15 | Subscripts | Syntax, Use Cases, Multidimensional Subscripts |
+
+| Day 16 | Generics | Functions, Types, Constraints |
+| Day 17 | Type Casting | as, as?, as!, is, Polymorphism |
+| Day 18 | Higher-Order Functions | map, filter, reduce, compactMap, flatMap |
+| Day 19 | Optionals – Deep Dive | Optional Chaining, nil-coalescing (??), Optional Pattern Matching |
+| Day 20 | Collections | Array, Set, Dictionary – Value Semantics, Iteration, Mutability |
+
+| Day 21 | Concurrency Basics | GCD, DispatchQueue, DispatchGroup, QoS |
+| Day 22 | Swift Concurrency | async, await, Task, actor, Structured Concurrency |
+| Day 23 | Result Type & Combine Intro | Result, Publisher, Subscriber, sink |
+| Day 24 | Access Control | open, public, internal, fileprivate, private |
+| Day 25 | Memory Management Patterns | Capture Lists, ARC in Closures, Avoiding Strong Cycles |
+
+| Day 26 | Functional Programming | Immutability, Pure Functions, Function Composition |
+| Day 27 | Custom Operators & DSL | Creating Operators, Precedence, Custom Syntax (e.g., SnapKit) |
+| Day 28 | Interview Patterns | Singleton, Factory, Dependency Injection in Swift |
+| Day 29 | Code Practice | Solve 2–3 Swift coding problems on LeetCode/Exercism |
+| Day 30 | Mock Interview / Review | Review all concepts + Try a mock interview or quiz |
